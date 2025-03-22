@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 将所有非 echo 输出隐藏
-exec > >(tee /dev/null) 2>&1
+exec > /dev/null) 2>&1
 
 # 检查命令是否成功执行
 function check_command() {
@@ -16,15 +16,11 @@ function create_and_cd() {
     mkdir -p "$1" > /dev/null 2>&1
     cd "$1" || { echo "无法切换到目录 $1"; exit 1; }
 }
-
-echo "======================================="
-echo " _____           _               __  __"
-echo "|_   _|_ _ _   _| | ___  _ __    \ \/ /"
-echo "  | |/ _` | | | | |/ _ \| '__|____\  / "
-echo "  | | (_| | |_| | | (_) | | |_____/  \ "
-echo "  |_|\__,_|\__, |_|\___/|_|      /_/\_\"
-echo "           |___/                       "
-echo "======================================="
+echo "    _    _ _              ___           _        _ _    "       
+echo "   / \  | (_) ___ _ __   |_ _|_ __  ___| |_ __ _| | | ___ _ __ "
+echo "  / _ \ | | |/ _ \ '_ \   | || '_ \/ __| __/ _` | | |/ _ \ '__|"
+echo " / ___ \| | |  __/ | | |  | || | | \__ \ || (_| | | |  __/ |   "
+echo "/_/   \_\_|_|\___|_| |_| |___|_| |_|___/\__\__,_|_|_|\___|_|   "
 
 echo "正在初始化 Git 仓库..."
 git init > /dev/null 2>&1
@@ -34,8 +30,10 @@ echo "尝试拉取 Alien 源码..."
 git pull https://github.com/im4dcat/alien > /dev/null 2>&1
 check_command
 
-echo "移动到 ~ 目录准备加载缓存文件来减少Gradle Configuring时间..."
+echo "移动到 ~ 目录准备创建 Fabric-Loom..."
 create_and_cd ~/.gradle
+create_and_cd caches
+create_and_cd fabric-loom
 
 echo "初始化 Git 仓库..."
 git init > /dev/null 2>&1
@@ -57,6 +55,9 @@ check_command
 rm -rf ./archives.z* > /dev/null 2>&1 || echo "删除 cc.z* 文件失败，请手动检查。"
 rm -rf ./cv.zip > /dev/null 2>&1 || echo "删除 cv.zip 文件失败，请手动检查。"
 
-
+# # 移动文件
+# mv together/1.20.4 ./ > /dev/null 2>&1 || echo "移动 1.20.4 目录失败，请手动检查。"
+# mv together/minecraftMaven ./ > /dev/null 2>&1 || echo "移动 minecraftMaven 目录失败，请手动检查。"
+# mv together/version_manifest.json ./ > /dev/null 2>&1 || echo "移动 version_manifest.json 文件失败，请手动检查。"
 
 echo "安装完成！"
