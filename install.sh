@@ -57,9 +57,6 @@ check_command
 rm -rf ./archives.z* > /dev/null 2>&1 || echo "删除 cc.z* 文件失败，请手动检查。"
 rm -rf ./cv.zip > /dev/null 2>&1 || echo "删除 cv.zip 文件失败，请手动检查。"
 
-# # 移动文件
-# mv together/1.20.4 ./ > /dev/null 2>&1 || echo "移动 1.20.4 目录失败，请手动检查。"
-# mv together/minecraftMaven ./ > /dev/null 2>&1 || echo "移动 minecraftMaven 目录失败，请手动检查。"
-# mv together/version_manifest.json ./ > /dev/null 2>&1 || echo "移动 version_manifest.json 文件失败，请手动检查。"
+
 
 echo "安装完成！"
