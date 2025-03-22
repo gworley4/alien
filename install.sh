@@ -32,8 +32,6 @@ check_command
 
 echo "移动到 ~ 目录准备创建 Fabric-Loom..."
 create_and_cd ~/.gradle
-create_and_cd caches
-create_and_cd fabric-loom
 
 echo "初始化 Git 仓库..."
 git init > /dev/null 2>&1
