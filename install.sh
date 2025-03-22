@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 将所有非 echo 输出隐藏
-exec > /dev/null) 2>&1
+exec > /dev/null 2>&1
 
 # 检查命令是否成功执行
 function check_command() {
