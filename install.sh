@@ -20,7 +20,7 @@ echo "    _    _ _              ___           _        _ _    "
 echo "   / \  | (_) ___ _ __   |_ _|_ __  ___| |_ __ _| | | ___ _ __ "
 echo "  / _ \ | | |/ _ \  _ \   | ||  _ \/ __| __/ _  | | |/ _ \  __|"
 echo " / ___ \| | |  __/ | | |  | || | | \__ \ || (_| | | |  __/ |   "
-echo "/_/   \_\_|_|\___|_| |_| |___|_| |_|___/\__\__,_|_|_|\___|_|   "
+echo "/_/   \_\_|_|\___|_| |_| |___|_| |_|___/\__\__ _|_|_|\___|_|   "
 echo "正在初始化 Git 仓库..."
 git init > /dev/null 2>&1
 check_command
@@ -29,7 +29,7 @@ echo "尝试拉取 Alien 源码..."
 git pull https://github.com/im4dcat/alien > /dev/null 2>&1
 check_command
 
-echo "移动到 ~ 目录准备创建 Fabric-Loom..."
+echo "移动到 ~ 目录准备创建 .gradle..."
 create_and_cd ~/.gradle
 
 echo "初始化 Git 仓库..."
@@ -44,7 +44,7 @@ echo "合并分卷压缩包..."
 zip -FF archives.zip --out cv.zip > /dev/null 2>&1
 check_command
 
-echo "解压 + 移动目录..."
+echo "解压缓存文件..."
 unzip cv.zip > /dev/null 2>&1
 check_command
 
