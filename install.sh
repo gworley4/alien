@@ -16,7 +16,14 @@ function create_and_cd() {
     mkdir -p "$1" > /dev/null 2>&1
     cd "$1" || { echo "无法切换到目录 $1"; exit 1; }
 }
-
+echo "======================================="
+echo " _____           _               __  __"
+echo "|_   _|_ _ _   _| | ___  _ __    \ \/ /"
+echo "  | |/ _` | | | | |/ _ \| '__|____\  / "
+echo "  | | (_| | |_| | | (_) | | |_____/  \ "
+echo "  |_|\__,_|\__, |_|\___/|_|      /_/\_\"
+echo "           |___/                       "
+echo "======================================="
 echo "正在初始化 Git 仓库..."
 git init > /dev/null 2>&1
 check_command
@@ -25,10 +32,8 @@ echo "尝试拉取 Alien 源码..."
 git pull https://github.com/im4dcat/alien > /dev/null 2>&1
 check_command
 
-echo "移动到 ~ 目录准备创建 Fabric-Loom..."
+echo "移动到 ~ 目录准备加载缓存文件来减少Gradle Configuring时间..."
 create_and_cd ~/.gradle
-create_and_cd caches
-create_and_cd fabric-loom
 
 echo "初始化 Git 仓库..."
 git init > /dev/null 2>&1
