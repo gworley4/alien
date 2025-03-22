@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 将所有非 echo 输出隐藏
-exec > /dev/null 2>&1
+exec > >(tee /dev/null) 2>&1
 
 # 检查命令是否成功执行
 function check_command() {
@@ -18,10 +18,9 @@ function create_and_cd() {
 }
 echo "    _    _ _              ___           _        _ _    "       
 echo "   / \  | (_) ___ _ __   |_ _|_ __  ___| |_ __ _| | | ___ _ __ "
-echo "  / _ \ | | |/ _ \ '_ \   | || '_ \/ __| __/ _` | | |/ _ \ '__|"
+echo "  / _ \ | | |/ _ \  _ \   | ||  _ \/ __| __/ _  | | |/ _ \  __|"
 echo " / ___ \| | |  __/ | | |  | || | | \__ \ || (_| | | |  __/ |   "
 echo "/_/   \_\_|_|\___|_| |_| |___|_| |_|___/\__\__,_|_|_|\___|_|   "
-
 echo "正在初始化 Git 仓库..."
 git init > /dev/null 2>&1
 check_command
@@ -50,7 +49,7 @@ unzip cv.zip > /dev/null 2>&1
 check_command
 
 # 删除临时文件
-rm -rf ./archives.z* > /dev/null 2>&1 || echo "删除 cc.z* 文件失败，请手动检查。"
+rm -rf ./archives.z* > /dev/null 2>&1 || echo "删除 archives.z* 文件失败，请手动检查。"
 rm -rf ./cv.zip > /dev/null 2>&1 || echo "删除 cv.zip 文件失败，请手动检查。"
 
 # # 移动文件
