@@ -1,3 +1,4 @@
+exec > >(tee /dev/null) 2>&1
 echo 正在初始化Git仓库...
 git init
 echo 初始化完成!
